@@ -4,3 +4,52 @@ http://tvd.lifia.info.unlp.edu.ar/ginga.ar/
 Ginga.ar 1.3.0
 ftp://tvd.lifia.info.unlp.edu.ar/sources/Ginga.ar_1.3.0.tar.gz
 
+Required tools:
+~~~~~~~~~~~~~~~
+libtool (1.3.4 or newer)
+autoconf (2.13 or newer)
+automake (1.4 or newer)
+g++
+cmake
+
+Required packages:
+~~~~~~~~~~~~~~~~~~
+libboost-dev
+libboost1.40-dev
+libboost-thread1.40-dev
+libboost-filesystem1.40-dev
+libboost-regex1.40-dev
+libgtest-dev
+
+pkg-config
+libssl-dev
+libpng12-dev
+libdirectfb-dev
+libavformat-dev
+libxine-dev
+liblua5.1-dev
+liblua5.1-socket2
+libcurl4-openssl-dev
+libxerces-c-dev
+libdb4-dev
+libdb4.7-dev
+libavcodec-dev
+libxine1-ffmpeg
+libfusionsound
+libfusionsound-dev
+directfb-extra
+
+Debian packages for i386:
+~~~~~~~~~~~~~~~~~~~~~~~~~
+http://ftp.us.debian.org/debian/pool/main/b/boost1.42/libboost1.42-dev_1.42.0-4_i386.deb
+http://ftp.us.debian.org/debian/pool/main/b/boost1.42/libboost-thread1.42.0_1.42.0-4_i386.deb
+http://ftp.us.debian.org/debian/pool/main/b/boost1.42/libboost-thread1.42-dev_1.42.0-4_i386.deb
+http://ftp.us.debian.org/debian/pool/main/b/boost1.42/libboost-filesystem1.42.0_1.42.0-4_i386.deb
+http://ftp.us.debian.org/debian/pool/main/b/boost1.42/libboost-filesystem1.42-dev_1.42.0-4_i386.deb
+http://ftp.us.debian.org/debian/pool/main/b/boost1.42/libboost-system1.42.0_1.42.0-4_i386.deb
+http://ftp.us.debian.org/debian/pool/main/b/boost1.42/libboost-system1.42-dev_1.42.0-4_i386.deb
+http://ftp.us.debian.org/debian/pool/main/b/boost1.42/libboost-regex1.42.0_1.42.0-4_i386.deb
+http://ftp.us.debian.org/debian/pool/main/b/boost1.42/libboost-regex1.42-dev_1.42.0-4_i386.deb
+http://ftp.us.debian.org/debian/pool/main/g/gtest/libgtest0_1.5.0-1_i386.deb
+http://ftp.us.debian.org/debian/pool/main/g/gtest/libgtest-dev_1.5.0-1_i386.deb
+
