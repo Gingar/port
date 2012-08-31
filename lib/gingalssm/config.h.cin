@@ -1,0 +1,12 @@
+/* config.h template for cmake */
+#define ${PROJECT_NAME_UPPERCASE}_VERSION ${VERSION}
+
+/* Def to 1 if you have Component support. */
+#define HAVE_COMPSUPPORT ${HAVE_COMPSUPPORT}
+
+/* Defines the PATH of the Unix Socket */
+#define GINGA_CONNECTOR_SOCKET ${GINGA_CONNECTOR_SOCKET}
+
+/* Prefix of the data path*/
+#define DATA_PREFIX_PATH "${CMAKE_INSTALL_PREFIX}"
+

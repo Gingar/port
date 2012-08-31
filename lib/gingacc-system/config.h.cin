@@ -1,0 +1,23 @@
+/* config.h template for cmake */
+#define ${PROJECT_NAME_UPPERCASE}_VERSION ${VERSION}
+
+/* Def to 1 if you have Component support. */
+#define HAVE_COMPSUPPORT ${HAVE_COMPSUPPORT}
+
+/* Def to 1 if you have FFMPEG support. */
+#define HAVE_FFMPEG ${HAVE_FFMPEG}
+
+/* Def to 1 if you have Xine support. */
+#define HAVE_XINE ${HAVE_XINE}
+
+/* Def of major and minor version of directfb */
+#define DIRECTFB_MAJOR_MINOR ${DIRECTFB_VERSION_MAJOR}${DIRECTFB_VERSION_MINOR}
+
+/* Prefix of the configuration path*/
+#define CONFIG_PREFIX_PATH "${CMAKE_CONFIG_INSTALL_PREFIX}"
+
+#define BG_R ${BG_R}
+#define BG_G ${BG_G}
+#define BG_B ${BG_B}
+#define BG_A ${BG_A}
+

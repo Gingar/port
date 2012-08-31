@@ -1,0 +1,69 @@
+# Makefile.am
+# (c) 2002 Mikulas Patocka, Karel 'Clock' Kulhavy, Petr 'Brain' Kulhavy,
+#          Martin 'PerM' Pergel
+
+# set the include path found by configure
+INCLUDES = $(all_includes)
+
+man_MANS=links.1
+
+EXTRA_DIST=atheos.cpp $(man_MANS) BRAILLE_HOWTO KEYS BUGS TODO SITES PATCH-gpm-1.20.0-smooth-cursor mailcap.pl rebuild Links_logo.png Unicode/*.cp Unicode/[!C]* intl/[!C]* parser/[!Cy]* graphics/*.c graphics/arrow.png graphics/gen graphics/system_font/*.png graphics/font/century_school-medium-roman-serif-vari/*.png graphics/font/century_school-bold-roman-serif-vari/*.png graphics/font/symbol-medium-roman-sans-vari/*.png graphics/font/courier-medium-roman-serif-mono/*.png graphics/font/japanese-medium-roman-sans-mono/*.png graphics/font/century_school-bold-roman-serif-vari/aliases graphics/font/century_school-medium-roman-serif-vari/aliases graphics/font/symbol-medium-roman-sans-vari/aliases doc/links_cal/*.png doc/links_cal/*.html graphics/Makefile graphics/Fontmap graphics/clip.c graphics/links.xpm graphics/makefont graphics/pdf2html graphics/spacer.png links_16x16_1.xpm links_16x16_2.xpm links_32x32.xpm
+
+bin_PROGRAMS=links
+
+if ATHEOS_GR
+links_LDADD=libtelemidialinks.la atheos.o
+else
+links_LDADD=libtelemidialinks.la $(DIRECTFB_LIBS)
+endif
+
+links_SOURCES=main.c
+
+dist-hook:
+#remove the symlinka:
+	rm $(distdir)/README
+	rm $(distdir)/INSTALL
+	echo Links $(VERSION) > $(distdir)/README
+	echo Links $(VERSION) -- How To Install > $(distdir)/INSTALL
+	echo Links $(VERSION) | tr -c '\n' '-' >> $(distdir)/README
+	echo Links $(VERSION) -- How To Install | tr -c '\n' '-' >> $(distdir)/INSTALL
+	echo >> $(distdir)/README
+	echo >> $(distdir)/INSTALL
+	cat $(srcdir)/README >> $(distdir)/README
+	cat $(srcdir)/INSTALL >> $(distdir)/INSTALL
+
+CXXFLAGS=@CXXFLAGS@
+# AM_CXXFLAGS = -g
+
+atheos.o: atheos.cpp
+	$(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c atheos.cpp
+
+datadir = $(prefix)/@DATADIRNAME@
+LIBS = @LIBS@
+
+
+# the library search path.
+localLibdir = $(prefix)/lib/ginga
+
+libtelemidialinks_la_LDFLAGS = -Wl,-soname,libtelemidialinks.so
+
+#localLib_PROGRAMS = libtelemidialinks.so
+localLib_LTLIBRARIES = libtelemidialinks.la
+
+
+libtelemidialinks_la_SOURCES = main-functions.c af_unix.c builtin.c default.c error.c gif.c \
+https.c jpeg.c lru.c menu.c pomocny.c smb.c view_gr.c auth.c cache.c dip.c \
+file.c html_gr.c imgcache.c jsint.c mailto.c ns.c regexp.c svgalib.c view.c \
+beos.c charsets.c directfb.c finger.c html.c img.c kbd.c objreq.c   \
+sched.c terminal.c win32.c bfu.c connect.c dither.c font_include.c         \
+html_r.c ipret.c language.c md5hl.c os_dep.c sdl.c tiff.c xbm.c block.c    \
+context.c dns.c framebuffer.c html_tbl.c javascript.c links_icon.c md5.c   \
+pmshell.c select.c types.c x.c bookmarks.c cookies.c drivers.c ftp.c       \
+http.c javascr.c listedit.c memory.c png.c session.c url.c
+
+localIncludedir = $(prefix)/include/ginga/player
+localInclude_HEADERS = telemidialinks.h
+
+miscdir = $(prefix)/lib/pkgconfig
+misc_DATA = telemidialinks.pc
+

@@ -1,0 +1,24 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+INCLUDE($ENV{DEPOT}/config/Tvd.cmake)
+
+SetIfEmpty(HAVE_COMPSUPPORT 0)
+
+find_package( GingaLib 0.11.0 REQUIRED util )
+LIST(APPEND GINGAIC_LIBRARIES GINGALIB-UTIL )
+
+find_package( Boost 1.39.0 REQUIRED system filesystem thread )
+LIST(APPEND GINGAIC_LIBRARIES Boost Boost-system Boost-filesystem Boost-thread)
+
+find_package( CURL REQUIRED )
+LIST(APPEND GINGAIC_LIBRARIES CURL )
+
+find_package( Pthreads REQUIRED )
+LIST(APPEND GINGAIC_LIBRARIES PTHREADS )
+
+Add_Lib (
+	PROJECT_NAME "ic"
+	PROJECT_DESCRIPTION "This is the Ginga IC library project."
+	PROJECT_VERSION 0.0.1.0
+	DEPENDENCIES ${GINGAIC_LIBRARIES}
+)
+

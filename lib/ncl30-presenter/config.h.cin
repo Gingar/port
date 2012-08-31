@@ -1,0 +1,15 @@
+/* config.h template for cmake */
+#define ${PROJECT_NAME_UPPERCASE}_VERSION ${VERSION}
+
+/* Def to 1 if you have Component support. */
+#define HAVE_COMPSUPPORT ${HAVE_COMPSUPPORT}
+
+/* Prefix of the configuration path*/
+#define CONFIG_PREFIX_PATH "${CMAKE_CONFIG_INSTALL_PREFIX}"
+
+/* Prefix of the data path*/
+#define DATA_PREFIX_PATH "${CMAKE_INSTALL_PREFIX}"
+
+/* Def to 1 if you have Xine support. */
+#define HAVE_XINE ${HAVE_XINE}
+

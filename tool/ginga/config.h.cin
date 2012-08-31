@@ -1,0 +1,9 @@
+/* config.h template for cmake */
+#define ${PROJECT_NAME_UPPERCASE}_VERSION "${VERSION}"
+
+/* Def to 1 if you have Component support. */
+#define HAVE_COMPSUPPORT ${HAVE_COMPSUPPORT}
+
+#define SVN_REVISION ${SVN_REVISION}
+
+/* config.h template for cmake */

@@ -1,0 +1,39 @@
+SET( PLAYER_HEADER_FILES
+	include/INCLPlayer.h
+	include/IPlayerListener.h
+	include/Player.h
+	include/ShowButton.h
+	include/LuaPlayer.h
+	include/PlayersComponentSupport.h
+	include/IApplicationPlayer.h
+	include/IShowButton.h
+	include/ImagePlayer.h
+	include/PlainTxtPlayer.h
+	include/GeodeVideo4Linux.h
+	include/AnimePlayer.h
+	include/IPlayer.h
+	include/AVPlayer.h
+	include/DummyConnector.h
+	include/LinksPlayer.h
+	include/mainavaplayer.h
+	include/TextPlayer.h
+	include/SrtPlayer.h
+)
+
+SET( PLAYER_SOURCE_FILES
+	${PLAYER_HEADER_FILES}
+	src/text/plain/PlainTxtPlayer.cpp
+	src/text/TextPlayer.cpp
+	src/text/srt/SrtPlayer.cpp
+	src/video/AVPlayer.cpp
+	src/video/DummyConnector.cpp
+	src/video/mainavplayer.cpp
+	src/application/declarative/xhtml/LinksPlayer.cpp
+	src/application/imperative/lua/LuaEvent.cpp
+	src/application/imperative/lua/LuaPlayer.cpp
+	src/application/imperative/lua/LuaCanvas.cpp
+	src/image/ImagePlayer.cpp
+	src/image/AnimePlayer.cpp
+	src/Player.cpp
+	src/widget/ShowButton.cpp
+)

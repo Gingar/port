@@ -1,0 +1,26 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+INCLUDE($ENV{DEPOT}/config/Tvd.cmake)
+
+SetIfEmpty(HAVE_COMPSUPPORT 0)
+
+SetIfEmpty( GINGA_CONNECTOR_SOCKET \"/tmp/gingaconnector.socket\" )
+
+find_package( GingaLib 0.11.0 REQUIRED util ncl ncl-converter system player ncl-presenter connector)
+LIST(APPEND GINGALSSM_LIBRARIES GINGALIB-UTIL GINGALIB-NCL GINGALIB-NCL-CONVERTER GINGALIB-SYSTEM GINGALIB-PLAYER GINGALIB-NCL-PRESENTER GINGALIB-CONNECTOR )
+
+find_package( DirectFB REQUIRED )
+LIST(APPEND GINGALSSM_LIBRARIES DIRECTFB )
+
+find_package( Boost 1.39.0 REQUIRED system filesystem thread )
+LIST(APPEND GINGALSSM_LIBRARIES Boost Boost-system Boost-filesystem Boost-thread)
+
+find_package( Pthreads REQUIRED )
+LIST(APPEND GINGALSSM_LIBRARIES PTHREADS )
+
+Add_Lib (
+	PROJECT_NAME "lssm"
+	PROJECT_DESCRIPTION "This is the LSSM Ginga library." 
+	PROJECT_VERSION 0.11.1.0
+	DEPENDENCIES ${GINGALSSM_LIBRARIES}
+)
+

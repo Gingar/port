@@ -1,0 +1,14 @@
+# pkg-config source file
+
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib/ginga
+includedir=${prefix}/include/ginga/player
+
+Name: telemidiautil 
+Description: This is the TeleMidia Util library.
+Version: 2.1pre21
+Requires: 
+Conflicts:
+Libs: -L${libdir} -ltelemidialinks
+Cflags: -I${includedir}
