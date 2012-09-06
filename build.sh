@@ -35,17 +35,35 @@ function addPackage()
 DEB_FTP=http://ftp.us.debian.org/debian/pool/main/
 DEB_ARCH=i386
 DEB_PAKAGES=
-addPackage b/boost1.42/libboost1.42-dev_1.42.0-4_
-addPackage b/boost1.42/libboost-thread1.42.0_1.42.0-4_
-addPackage b/boost1.42/libboost-thread1.42-dev_1.42.0-4_
-addPackage b/boost1.42/libboost-filesystem1.42.0_1.42.0-4_
-addPackage b/boost1.42/libboost-filesystem1.42-dev_1.42.0-4_
-addPackage b/boost1.42/libboost-system1.42.0_1.42.0-4_
-addPackage b/boost1.42/libboost-system1.42-dev_1.42.0-4_
-addPackage b/boost1.42/libboost-regex1.42.0_1.42.0-4_
-addPackage b/boost1.42/libboost-regex1.42-dev_1.42.0-4_
+
+# Boost 1.50.0
+addPackage b/boost1.50/libboost1.50-dev_1.50.0-1_
+addPackage b/boost1.50/libboost-thread1.50.0_1.50.0-1_
+addPackage b/boost1.50/libboost-thread1.50-dev_1.50.0-1_
+addPackage b/boost1.50/libboost-filesystem1.50.0_1.50.0-1_
+addPackage b/boost1.50/libboost-filesystem1.50-dev_1.50.0-1_
+addPackage b/boost1.50/libboost-system1.50.0_1.50.0-1_
+addPackage b/boost1.50/libboost-system1.50-dev_1.50.0-1_
+addPackage b/boost1.50/libboost-regex1.50.0_1.50.0-1_
+addPackage b/boost1.50/libboost-regex1.50-dev_1.50.0-1_
+# GTest 1.5.0
 addPackage g/gtest/libgtest0_1.5.0-1_
 addPackage g/gtest/libgtest-dev_1.5.0-1_
+# libjpeg62
+addPackage libj/libjpeg6b/libjpeg62_6b1-1_
+addPackage libj/libjpeg6b/libjpeg62-dev_6b1-1_
+# libc6 : pthread
+#addPackage e/eglibc/libc6_2.11.3-3_
+#addPackage e/eglibc/libc6-dev_2.11.3-3_
+# zlib
+addPackage z/zlib/zlib1g_1.2.3.4.dfsg-3_
+addPackage z/zlib/zlib1g-dev_1.2.3.4.dfsg-3_
+# png
+addPackage libp/libpng/libpng12-0_1.2.44-1+squeeze4_
+addPackage libp/libpng/libpng12-dev_1.2.44-1+squeeze4_
+# DirectFB
+addPackage d/directfb/libdirectfb-1.2-9_1.2.10.0-5_
+addPackage d/directfb/libdirectfb-dev_1.2.10.0-5_
 
 export PREFIX=$DEPOT/DEPLOY/usr
 mkdir -p $PREFIX
@@ -70,6 +88,9 @@ for debfile in *; do
     fi
   fi
 done
+
+#mv lib/* usr/lib/
+#rm -rf etc lib
 
 function buildModule()
 {
